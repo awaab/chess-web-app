@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'rest_auth',
-    'core',
+    #'core',
     'chess_app',
     'channels',
     'corsheaders',

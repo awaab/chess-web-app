@@ -3,11 +3,11 @@ import axios from 'axios';
 
 //const login_url = 'api/v1/rest-auth/login/';
 //const login_url = 'api/v1/rest-auth/login/';
-const hello_url =  'api/v1/users/hello/'
-const login_url = 'api/v1/users/login/'
-const signup_url = 'api/v1/users/signup/'
-const user_url = 'api/v1/rest-auth/user/'
-const session_url = 'api/v1/users/session/'
+const hello_url =  'chess/hello/'
+const login_url = 'chess/login/'
+const signup_url = 'chess/signup/'
+const user_url = 'chess/user/'
+const session_url = 'chess/session/'
 axios.defaults.xsrfCookieName = 'csrftoken'
 axios.defaults.xsrfHeaderName = "X-CSRFTOKEN"
 
