@@ -13,7 +13,7 @@ import Websocket from 'react-websocket';
 
 
 const user_url = 'api/v1/rest-auth/user/'
-const logged_in_check_url = 'api/v1/users/logged-in/'
+const logged_in_check_url = 'chess/logged-in/'
 axios.defaults.xsrfCookieName = 'csrftoken'
 axios.defaults.xsrfHeaderName = "X-CSRFTOKEN"
 

@@ -1,6 +1,6 @@
 import React,{Component,Fragment} from 'react';
 import axios from 'axios';
-import ChessGame from './ChessGame.js'
+import GameOptions from './GameOptions.js'
 const logout_url = 'api/v1/users/logout/'
 
 class Home extends Component{
@@ -12,7 +12,7 @@ constructor(props){
 	state={
 		show_home: true,
 		show_stats: false,
-		show_game: false,
+		show_options: false,
 	}
 
 logOut = () =>{
@@ -22,21 +22,13 @@ logOut = () =>{
       this.props.setLoggedInCallback(false);
   })
 }
-playStock = () =>{
-	console.log('playStock');
-	this.setState({
-		show_home: false,
-		show_stats: false,
-		show_game: true,
-	});
-}
 
 showStats = () =>{
 	console.log('showStats');
 		this.setState({
 		show_home: false,
 		show_stats: true,
-		show_game: false,
+		show_options: false,
 	});
 }
 showHome = () =>{
@@ -44,9 +36,21 @@ showHome = () =>{
 		this.setState({
 		show_home: true,
 		show_stats: false,
-		show_game: false,
+		show_options: false,
 	});
 }
+showOptions = () =>{
+	this.setState({
+		show_home: false,
+		show_stats: false,
+		show_options: true,
+	});
+}
+
+endGame = () =>{
+	this.showHome();
+}
+
 render() {
   return (
     <div>
@@ -54,7 +58,7 @@ render() {
     <Fragment>
     <h1>Home</h1>
     	<button onClick={this.showStats} >Show Stats</button>
-    	<button onClick={this.playStock} >Play against stockfish</button>
+    	<button onClick={this.showOptions} >Play against AI</button>
         <button onClick={this.logOut} >Logout</button>
     </Fragment>
 	}
@@ -62,10 +66,11 @@ render() {
 		<h1>stats</h1>
 	}
 
-	{this.state.show_game &&
+
+	{this.state.show_options &&
 		<Fragment>
-		<h1>game</h1>
-		<ChessGame playerColor={'w'}/>
+		<h1>options</h1>
+		<GameOptions endGameCallback={this.endGame}/>
 		</Fragment>
 	}
 	<button onClick={this.showHome}>show_home()</button>

@@ -26,7 +26,7 @@ constructor(props){
 
 		event.preventDefault();
 		const data = {username: event.target.username.value,
-		  password: event.target.password.value}
+		password: event.target.password.value}
     	//const data = new FormData(event.target);
     	console.log(data)
     	console.log(event.target.username.value);
