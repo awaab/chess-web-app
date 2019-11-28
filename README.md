@@ -17,9 +17,9 @@ Current features:
 
 3. A home page shown after logging in that gives user the following options:
 
-Play against AI (Enables user to play against 6 different levels of difficulty of the chess engine stockfish).
+* Play against AI (Enables user to play against 6 different levels of difficulty of the chess engine stockfish).
 
-Show stats (Shows the player the their statistics: games played/ won/ lost + record of the previous games from the database).
+* Show stats (Shows the player the their statistics: games played/ won/ lost + record of the previous games from the database).
 
 Future features:
 
