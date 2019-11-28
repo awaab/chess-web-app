@@ -11,14 +11,6 @@ state={
 		level: 1,
 	}
 
-depth ={
-	1:2,
-	2:3,
-	3:5,
-	4:7,
-	5:9,
-	6:10,
-}
 
 constructor(props){
    super(props);
@@ -95,7 +87,7 @@ render() {
     {this.state.show_game &&
 		<Fragment>
 		<h1>game</h1>
-		<ChessGame playerColor={this.state.color} depth={this.depth[this.state.level]} endGameCallback={this.endGame}/>
+		<ChessGame playerColor={this.state.color} level={this.state.level} endGameCallback={this.endGame}/>
 		</Fragment>
 	}
       </div>  );

@@ -1,13 +1,20 @@
 import React,{Component} from 'react';
 import ChessboardValid from './chessboardValid.js'
 import Chess from 'chess.js';
+import axios from 'axios';
 
+
+axios.defaults.xsrfCookieName = 'csrftoken'
+axios.defaults.xsrfHeaderName = "X-CSRFTOKEN"
+const end_game_url = 'chess/endgame/';
 //import stockfish from '../chessEngines/stockfish.js';
 class ChessGame extends Component{
 	constructor(props) {
     super(props);
     this.stockfish = new Worker('static/stockfish.js');
     this.chessGame = new Chess();
+    var date = new Date();
+    this.start_timestamp = date.getTime();
     var that = this;
     this.stockfish.onmessage = function(event) { //console.log((event.data));
     	if(event.data.startsWith('bestmove')){
@@ -24,7 +31,7 @@ class ChessGame extends Component{
       console.log("UUCCII OOKK");
     }
     this.stockfish.postMessage('uci');
-    this.nextTurn(undefined);
+    this.nextTurn('w');
     //this.stockfish.postMessage('position '+this.state.position);
     //this.stockfish.postMessage('isready');
     //this.stockfish.postMessage('position '+this.state.position+'moves d2d4');
@@ -33,9 +40,16 @@ class ChessGame extends Component{
   	position: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
     moves: [],
   }
-nextTurn = (turn) =>{
-  
+  depth ={
+  1:1,
+  2:3,
+  3:5,
+  4:7,
+  5:9,
+  6:10,
+}
 
+nextTurn = (turn) =>{
   console.log("In chessgame turn: ",turn);
   console.log('++++++++++++++++++++');
 	if(turn === this.props.playerColor)
@@ -73,9 +87,31 @@ updateBoard = (fen,move) =>{
 }
 
 endGame = () =>{
+  //post game record
+  var winner = (this.chessGame.turn()==='b') ? "W" : "B";
+  var white_player =(this.props.playerColor==='w') ? 'user':'level'+this.props.level;
+  var black_player =(this.props.playerColor==='b') ? 'user':'level'+this.props.level;
+  var date = new Date();
+  var end_timestamp = date.getTime();
+  var duration = end_timestamp/1000 -this.start_timestamp/1000;
+  console.log('duration', duration);
+  const data = {
+    winner: winner,
+    white_player: white_player,
+    black_player: black_player,
+    duration: duration,
+  }
   console.log("GAM ENDED");
   console.log(this.chessGame.turn());
-  this.props.endGameCallback();
+  axios.post(end_game_url, data)
+    .then((response) => {
+      console.log(response);
+      //this.props.setTokenCallback(response.data.key);
+    }, (error) => {
+      console.log(error);
+    });
+
+  //this.props.endGameCallback();
 
 }
 
@@ -107,7 +143,8 @@ playOponentsTurn = () =>{
   console.log("playOponentsTurn",this.chessGame.turn());
 	//this.stockfish.postMessage('position startpos moves '+this.state.moves.join(' '));
   this.stockfish.postMessage('position fen '+this.state.position);
-  var depth = this.props.depth;
+  var depth = this.depth[this.props.level];
+  console.log('go depth '+depth);
 	this.stockfish.postMessage('go depth '+depth);
 }
 

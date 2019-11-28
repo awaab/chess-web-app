@@ -1,7 +1,10 @@
 import React,{Component,Fragment} from 'react';
 import axios from 'axios';
 import GameOptions from './GameOptions.js'
-const logout_url = 'api/v1/users/logout/'
+import Stats from './Stats.js';
+
+
+const logout_url = 'chess/logout/'
 
 class Home extends Component{
 
@@ -63,7 +66,7 @@ render() {
     </Fragment>
 	}
 	{this.state.show_stats &&
-		<h1>stats</h1>
+		<Stats/>
 	}
 
 

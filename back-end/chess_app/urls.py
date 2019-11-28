@@ -9,4 +9,7 @@ path('session/', views.SessionView.as_view(), name='session'),
 path('login/', views.login_view, name='login'),
 path('logout/', views.logout_view, name='logout'),
 path('signup/', views.sign_up_view, name='signup'),
+path('endgame/', views.endgame_view, name='endgame'),
+path('games_played/', views.games_played_view, name='games_played'),
 ]
+

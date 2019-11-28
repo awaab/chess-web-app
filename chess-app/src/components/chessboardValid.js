@@ -13,7 +13,7 @@ makeMove = (sourceSquare, targetSquare, piece) =>{
 	this.props.chessGame.move({ from: sourceSquare, to: targetSquare });
 	this.props.updateBoardCallback(this.props.chessGame.fen(),sourceSquare+targetSquare);
 	//this.props.nextTurnCallback(this.props.chessGame.turn());
-  this.displayOnConsole();
+  //this.displayOnConsole();
 }
 displayOnConsole = () =>{
 	console.log(this.props.chessGame.ascii());
@@ -33,8 +33,8 @@ onMessage = (data) => {
 }
 allowDrag = ({piece,sourceSquare}) =>{
 	var color = piece.charAt(0);
-	console.log('dragging',color);
-  console.log(this.props.color);
+	//console.log('dragging',color);
+  //console.log(this.props.color);
 	if(color !== this.props.chessGame.turn())
 		return false;
   else if (color == this.props.playerColor)
