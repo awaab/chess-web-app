@@ -2,6 +2,7 @@ import React,{Component,Fragment} from 'react';
 import axios from 'axios';
 import GameOptions from './GameOptions.js'
 import Stats from './Stats.js';
+import { Button,Form,Row, Container } from 'react-bootstrap';
 
 
 const logout_url = 'chess/logout/'
@@ -59,10 +60,18 @@ render() {
     <div>
     {this.state.show_home &&
     <Fragment>
-    <h1>Home</h1>
-    	<button onClick={this.showStats} >Show Stats</button>
-    	<button onClick={this.showOptions} >Play against AI</button>
-        <button onClick={this.logOut} >Logout</button>
+    <h2>Home</h2>
+    	<Container>
+    	<Button onClick={this.showStats} style={{width: "40%"}}>Show Stats</Button>
+    	</Container>
+<p/>
+    	<Container>
+    	<Button onClick={this.showOptions} style={{width: "40%"}}>Play against AI</Button>
+    	</Container>
+<p/>
+    	<Container>
+        <Button onClick={this.logOut} style={{width: "40%"}}>Logout</Button>
+        </Container>
     </Fragment>
 	}
 	{this.state.show_stats &&
@@ -76,7 +85,7 @@ render() {
 		<GameOptions endGameCallback={this.endGame}/>
 		</Fragment>
 	}
-	<button onClick={this.showHome}>show_home()</button>
+	{/*<button onClick={this.showHome}>show_home()</button>*/}
     </div>
   );}
 }

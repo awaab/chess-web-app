@@ -9,6 +9,7 @@ import './App.css';
 import axios from 'axios';
 import Websocket from 'react-websocket';
 //import Reducer from './reduxes.js'
+import './index.css'
 
 
 

@@ -1,5 +1,7 @@
 import React,{Component} from 'react';
 import axios from 'axios';
+import { Button,Form,Row, Container } from 'react-bootstrap';
+
 
 //const login_url = 'api/v1/rest-auth/login/';
 //const login_url = 'api/v1/rest-auth/login/';
@@ -111,43 +113,42 @@ constructor(props){
 	render() {
 		  return (
 		  	<div>
-		  	<h1>Login</h1>
+		  	<h2>Play Chess!</h2>
+		  	<Container className="text-center" style={{width: "70%"}}>
 				<form onSubmit={this.submit}>
-				  <label>
-				    User Name:
-				    <input id="username" name="username" type="text" />
-				  </label>
-
-				  <label>
-				    Password:
-				    <input id="password" name="password" type="password" />
-				  </label>
-
-				  <input type="submit" value="Submit" />
+				<Form.Group as={Row} controlId="username">
+				    <Form.Control type="text" placeholder="User Name"/>
+				  </Form.Group>
+				  <Form.Group as={Row} controlId="password">
+				   <Form.Control type="password" placeholder="Password"/>
+				  	</Form.Group>
+				  	<Form.Group as={Row} controlId="submitLogin">
+				  <Button variant="primary" type="submit" className="text-center" style={{width: "25%"}}>Login</Button>
+				  </Form.Group>
 				</form>
-
+				</Container>
 				{/*<button onClick={this.helloClick}>Hello</button>
 				<button onClick={this.sessionClick}>Session</button>*/}
-			
-			<h1>Signup</h1>
-				<form onSubmit={this.submit_signup}>
-				  <label>
-				    User Name:
-				    <input id="username" name="username" type="text" />
-				  </label>
+			<Container className="text-center" style={{width: "70%"}}>
+				<Form onSubmit={this.submit_signup}>
+				<Form.Group as={Row} controlId="username">
+				    <Form.Control type="text" placeholder="User name"/>
+				  </Form.Group>
 
-				  <label>
-				    Password:
-				    <input id="password1" name="password1" type="password" />
-				  </label>
+				  <Form.Group as={Row} controlId="password1" >
+				   <Form.Control type="password" placeholder="Password"/>
+				   </Form.Group>
 
-				  <label>
-				    Password again:
-				    <input id="password2" name="password2" type="password" />
-				  </label>
+				  <Form.Group as={Row} controlId="password2">
+				   <Form.Control type="password" placeholder="Repeat password"/>
+				   </Form.Group>
 
-				  <input type="submit" value="Submit" />
-				</form>
+				  <Form.Group as={Row} controlId="submitSignup">
+				  <Button variant="primary" type="submit" className="btn btn-primary" style={{width: "25%"}}>Signup</Button>
+				  </Form.Group>
+				</Form>
+
+</Container>
 
 			</div>
 		)
