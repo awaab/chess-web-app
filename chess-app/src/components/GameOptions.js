@@ -1,6 +1,6 @@
 import React,{Component, Fragment} from 'react';
 import ChessGame from './ChessGame.js'
-
+import {Table,Button,Form,Row, Container, Col} from 'react-bootstrap';
 
 class GameOptions extends Component{
 
@@ -37,57 +37,54 @@ render() {
     <div>
      {this.state.show_options &&
 		<Fragment>
-		<h1>Select Options</h1>
-		 <form onSubmit={this.handleSubmit}>
-        <label>
-          Level
-          <select value={this.state.level} onChange={this.handleLevelChange}>
+		<h3>Game Options</h3>
+		 <Container className="text-center" style={{width: "60%"}}>
+		 <Form onSubmit={this.handleSubmit}>
+<Form.Group controlId="difficulty.level">
+    <Form.Label>Select difficulty level</Form.Label>
+    <Form.Control as="select" value={this.state.level} onChange={this.handleLevelChange}>
             <option value={1}>One</option>
             <option value={2}>Two</option>
             <option value={3}>Three</option>
             <option value={4}>Four</option>
             <option value={5}>Five</option>
             <option value={6}>Six</option>
-          </select>
-        </label>
+           </Form.Control>
+  </Form.Group>
         <p></p>
-       
-         <ul>
-        <li>
-          <label>
-            <input
-              type="radio"
-              value="w"
-              checked={this.state.color === "w"}
-              onChange={this.handleColorChange}
-            />
-            white
-          </label>
-        </li>
+          <Form.Label as='Row'>Select color</Form.Label>
+          <Form.Check 
+        type="radio"
+        value="w"
+        checked={this.state.color === "w"}
+        onChange={this.handleColorChange}
+        id='white'
+        label='White'
+      />
+     <Form.Check 
+        type="radio"
+        value="b"
+        checked={this.state.color === "b"}
+        onChange={this.handleColorChange}
+        id='black'
+        label='Black'
+      />
         
-        <li>
-          <label>
-            <input
-              type="radio"
-              value="b"
-              checked={this.state.color === "b"}
-              onChange={this.handleColorChange}
-            />
-            black
-          </label>
-        </li>
-      </ul>
-
-       <input type="submit" value="Play" />
-       </form>
-
+          <Form.Group as={Row} controlId="Play" className="text-center">
+          <Col style={{width: "10%"}}/>
+			<Col><Button variant="primary" type="submit" style={{width: "40%"}} className="btn btn-primary">Play now</Button></Col>
+			<Col style={{width: "10%"}}/>
+				  </Form.Group>
+       </Form>
+        </Container>
 		</Fragment>
 	}
 
     {this.state.show_game &&
 		<Fragment>
-		<h1>game</h1>
-		<ChessGame playerColor={this.state.color} level={this.state.level} endGameCallback={this.endGame}/>
+		 
+		<ChessGame showHome={this.props.showHome} playerColor={this.state.color} level={this.state.level} endGameCallback={this.endGame}/>
+		
 		</Fragment>
 	}
       </div>  );

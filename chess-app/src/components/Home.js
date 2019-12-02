@@ -75,14 +75,13 @@ render() {
     </Fragment>
 	}
 	{this.state.show_stats &&
-		<Stats/>
+		<Stats showHome={this.showHome}/>
 	}
 
 
 	{this.state.show_options &&
 		<Fragment>
-		<h1>options</h1>
-		<GameOptions endGameCallback={this.endGame}/>
+		<GameOptions showHome= {this.showHome} endGameCallback={this.endGame}/>
 		</Fragment>
 	}
 	{/*<button onClick={this.showHome}>show_home()</button>*/}

@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import ChessboardValid from './chessboardValid.js'
 import Chess from 'chess.js';
 import axios from 'axios';
-
+import {Table,Button,Form,Row, Container, Col} from 'react-bootstrap';
 
 axios.defaults.xsrfCookieName = 'csrftoken'
 axios.defaults.xsrfHeaderName = "X-CSRFTOKEN"
@@ -39,6 +39,7 @@ class ChessGame extends Component{
   state = {
   	position: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
     moves: [],
+    gameOver: false,
   }
   depth ={
   1:1,
@@ -88,6 +89,9 @@ updateBoard = (fen,move) =>{
 
 endGame = () =>{
   //post game record
+  this.setState({
+    gameOver: true,
+  })
   var winner = (this.chessGame.turn()==='b') ? "W" : "B";
   var white_player =(this.props.playerColor==='w') ? 'user':'level'+this.props.level;
   var black_player =(this.props.playerColor==='b') ? 'user':'level'+this.props.level;
@@ -152,8 +156,33 @@ playOponentsTurn = () =>{
   render() {
   return (
     <div>
-     <ChessboardValid chessGame={this.chessGame} position={this.state.position} nextTurnCallback={this.nextTurn} updateBoardCallback={this.updateBoard} moveDoneCallback={this.moveDone} playerColor={this.props.playerColor}/>
-
+    <Container>
+    <Row className="text-center" >
+    <Col/>
+    <Col>
+    {!this.state.gameOver &&
+    <h3>Playing against AI level {this.props.level} </h3>
+    }
+    {this.state.gameOver &&
+    <h2>Game Over</h2>
+    }
+    </Col>
+    <Col/>
+    </Row>
+    <Row className="text-center" >
+    <Col/>
+     <Col><ChessboardValid chessGame={this.chessGame} position={this.state.position} nextTurnCallback={this.nextTurn} updateBoardCallback={this.updateBoard} moveDoneCallback={this.moveDone} playerColor={this.props.playerColor}/></Col>
+     <Col/>
+     </Row>
+     <Row>
+<h3/>
+     </Row>
+     <Row className="text-center">
+     <Col/>
+     <Col><Button onClick={this.props.showHome} style={{width: "40%"}}>Quit game</Button></Col>
+     <Col/>
+     </Row>
+     </Container>
     </div>
   );}
 

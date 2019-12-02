@@ -106,7 +106,7 @@ def games_played_view(request):
                 lost +=1
         games_list.append(game.dictionary())  
     played = len(games_list)
-    data = {'played':played,'won':won,'lost':lost,'draw':draw,'games_list':games_list}
+    data = {'user':request.user.username,'played':played,'won':won,'lost':lost,'draw':draw,'games_list':games_list}
     return JsonResponse(data, status=200)
 
 def get_all_logged_in_users():

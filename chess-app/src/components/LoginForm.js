@@ -115,7 +115,7 @@ constructor(props){
 		  	<div>
 		  	<h2>Play Chess!</h2>
 		  	<Container className="text-center" style={{width: "70%"}}>
-				<form onSubmit={this.submit}>
+				<Form onSubmit={this.submit}>
 				<Form.Group as={Row} controlId="username">
 				    <Form.Control type="text" placeholder="User Name"/>
 				  </Form.Group>
@@ -125,7 +125,7 @@ constructor(props){
 				  	<Form.Group as={Row} controlId="submitLogin">
 				  <Button variant="primary" type="submit" className="text-center" style={{width: "25%"}}>Login</Button>
 				  </Form.Group>
-				</form>
+				</Form>
 				</Container>
 				{/*<button onClick={this.helloClick}>Hello</button>
 				<button onClick={this.sessionClick}>Session</button>*/}
