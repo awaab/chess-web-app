@@ -70,8 +70,14 @@ render() {
     	</Container>
 <p/>
     	<Container>
+        <Button disabled={true} style={{width: "40%"}}>Play against online players</Button>
+        </Container>
+<p/>
+    	<Container>
         <Button onClick={this.logOut} style={{width: "40%"}}>Logout</Button>
         </Container>
+
+        
     </Fragment>
 	}
 	{this.state.show_stats &&
