@@ -5,7 +5,7 @@ import Stats from './Stats.js';
 import { Button,Form,Row, Container } from 'react-bootstrap';
 
 
-const logout_url = 'chess/logout/'
+const logout_url = 'logout/'
 
 class Home extends Component{
 

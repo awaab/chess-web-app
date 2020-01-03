@@ -15,11 +15,18 @@ from django.contrib.sessions.models import Session
 from django.utils import timezone
 from datetime import datetime
 from django.db.models import Q
+from django.template import Context, loader
+from django.shortcuts import render
+
 '''
 class UserListView(generics.ListAPIView):
     queryset = models.CustomUser.objects.all()
     serializer_class = serializers.UserSerializer
 '''
+
+
+def index(request):
+    return render(request, "index.html")
 
 class LoggedInView(APIView):
     permission_classes = (IsAuthenticated,)

@@ -6,7 +6,7 @@ import {Table,Button,Form,Row, Container, Col} from 'react-bootstrap';
 axios.defaults.xsrfCookieName = 'csrftoken'
 axios.defaults.xsrfHeaderName = "X-CSRFTOKEN"
 
-const games_played_url ='chess/games_played/';
+const games_played_url ='games_played/';
 
 class Stats extends Component{
 state={

@@ -5,11 +5,11 @@ import { Button,Form,Row, Container } from 'react-bootstrap';
 
 //const login_url = 'api/v1/rest-auth/login/';
 //const login_url = 'api/v1/rest-auth/login/';
-const hello_url =  'chess/hello/'
-const login_url = 'chess/login/'
-const signup_url = 'chess/signup/'
-const user_url = 'chess/user/'
-const session_url = 'chess/session/'
+const hello_url =  'hello/'
+const login_url = 'login/'
+const signup_url = 'signup/'
+const user_url = 'user/'
+const session_url = 'session/'
 axios.defaults.xsrfCookieName = 'csrftoken'
 axios.defaults.xsrfHeaderName = "X-CSRFTOKEN"
 
