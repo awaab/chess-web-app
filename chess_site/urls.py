@@ -17,6 +17,6 @@ from django.contrib import admin
 from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('chess/',include('chess_app.urls', namespace='chess_app')),
+    path('',include('chess_app.urls', namespace='chess_app')),
     #path('accounts/signup/',core_views.signup,name='signup')
 ]

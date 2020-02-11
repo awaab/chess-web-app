@@ -34,11 +34,11 @@ endGame = () =>{
 
 render() {
   return (
-    <div>
+    <div >
      {this.state.show_options &&
-		<Fragment>
+		<div  className='centered' style={{width: '50%'}}>
 		<h3>Game Options</h3>
-		 <Container className="text-center" style={{width: "60%"}}>
+		 <Container >
 		 <Form onSubmit={this.handleSubmit}>
 <Form.Group controlId="difficulty.level">
     <Form.Label>Select difficulty level</Form.Label>
@@ -72,12 +72,12 @@ render() {
         
           <Form.Group as={Row} controlId="Play" className="text-center">
           <Col style={{width: "10%"}}/>
-			<Col><Button variant="primary" type="submit" style={{width: "40%"}} className="btn btn-primary">Play now</Button></Col>
+			<Col><Button variant="primary" type="submit" style={{width: "140px"}} className="btn btn-primary">Play now</Button></Col>
 			<Col style={{width: "10%"}}/>
 				  </Form.Group>
        </Form>
         </Container>
-		</Fragment>
+		</div>
 	}
 
     {this.state.show_game &&

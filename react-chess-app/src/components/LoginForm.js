@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import axios from 'axios';
-import { Button,Form,Row, Container } from 'react-bootstrap';
+import { Button,Form,Row, Col, Container } from 'react-bootstrap';
 
 
 //const login_url = 'api/v1/rest-auth/login/';
@@ -112,9 +112,9 @@ constructor(props){
 
 	render() {
 		  return (
-		  	<div>
+		  	<div className="text-center">
 		  	<h2>Play Chess!</h2>
-		  	<Container className="text-center" style={{width: "70%"}}>
+		  	<Container className="text-center" style={{width: "50%"}}>
 				<Form onSubmit={this.submit}>
 				<Form.Group as={Row} controlId="username">
 				    <Form.Control type="text" placeholder="User Name"/>
@@ -122,14 +122,18 @@ constructor(props){
 				  <Form.Group as={Row} controlId="password">
 				   <Form.Control type="password" placeholder="Password"/>
 				  	</Form.Group>
-				  	<Form.Group as={Row} controlId="submitLogin">
-				  <Button variant="primary" type="submit" className="text-center" style={{width: "25%"}}>Login</Button>
+				  	<Form.Group as={Row}  controlId="submitLogin">
+				  	<Col style={{width: "10%"}}/>
+				  	<Col>
+				  <Button variant="primary" type="submit" className="text-center" style={{width: "250px"}}>Login</Button>
+				  </Col>
+				  <Col  style={{width: "10%"}}/>
 				  </Form.Group>
 				</Form>
 				</Container>
 				{/*<button onClick={this.helloClick}>Hello</button>
 				<button onClick={this.sessionClick}>Session</button>*/}
-			<Container className="text-center" style={{width: "70%"}}>
+			<Container className="text-center" style={{width: "50%"}}>
 				<Form onSubmit={this.submit_signup}>
 				<Form.Group as={Row} controlId="username">
 				    <Form.Control type="text" placeholder="User name"/>
@@ -144,7 +148,11 @@ constructor(props){
 				   </Form.Group>
 
 				  <Form.Group as={Row} controlId="submitSignup">
-				  <Button variant="primary" type="submit" className="btn btn-primary" style={{width: "25%"}}>Signup</Button>
+				  <Col  style={{width: "10%"}}/>
+				  <Col>
+				  <Button variant="primary" type="submit" className="btn btn-primary" style={{backgroundColor:'#B9732F', width: "250px"}}>Signup</Button>
+				  </Col>
+				  <Col  style={{width: "10%"}}/>
 				  </Form.Group>
 				</Form>
 

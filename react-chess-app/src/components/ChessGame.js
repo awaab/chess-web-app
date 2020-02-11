@@ -6,7 +6,7 @@ import {Table,Button,Form,Row, Container, Col} from 'react-bootstrap';
 
 axios.defaults.xsrfCookieName = 'csrftoken'
 axios.defaults.xsrfHeaderName = "X-CSRFTOKEN"
-const end_game_url = 'chess/endgame/';
+const end_game_url = 'endgame/';
 //import stockfish from '../chessEngines/stockfish.js';
 class ChessGame extends Component{
 	constructor(props) {

@@ -1,7 +1,39 @@
+
+body {
+background-color: #EDF6FF;
+}
+
+.login-box {
+          background-color: #4375C7;
+          minWidth: 500px;
+          width: 70%;
+          position: absolute;
+          border-radius: 25px 25px 25px 25px;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%,-50%);
+}
+
+.centered {
+  position: absolute;
+  left: 25%;
+  width: 100%;
+  transform: xtranslate(-50%);
+  //text-align: center;
+}
+
+Container:{
+  
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+  }
+
 .App {
   text-align: center;
 }
 
+/*
 .App-logo {
   height: 40vmin;
 }
@@ -20,3 +52,4 @@
 .App-link {
   color: #09d3ac;
 }
+*/

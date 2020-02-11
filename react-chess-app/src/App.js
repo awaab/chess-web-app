@@ -13,8 +13,7 @@ import './index.css'
 
 
 
-const user_url = 'api/v1/rest-auth/user/'
-const logged_in_check_url = 'chess/logged-in/'
+const logged_in_check_url = 'logged-in/'
 axios.defaults.xsrfCookieName = 'csrftoken'
 axios.defaults.xsrfHeaderName = "X-CSRFTOKEN"
 
@@ -61,7 +60,7 @@ setSessionKey = (SessionKey) =>{
 
 render() {
   return (
-    <div className="App">
+    <div >
     {/*<AuthProvider authUrl={user_url}/>*/}
     {/* <ChessboardValid/> */}
     {!this.state.logged_in &&

@@ -2,7 +2,7 @@ import React,{Component,Fragment} from 'react';
 import axios from 'axios';
 import GameOptions from './GameOptions.js'
 import Stats from './Stats.js';
-import { Button,Form,Row, Container } from 'react-bootstrap';
+import { Button,Form,Row,Col, Container } from 'react-bootstrap';
 
 
 const logout_url = 'logout/'
@@ -57,10 +57,13 @@ endGame = () =>{
 
 render() {
   return (
-    <div>
+    <div >
+    <Container>
     {this.state.show_home &&
-    <Fragment>
-    <h2>Home</h2>
+    <div className='centered' >
+    <Container >
+    <h2 style={{width: "40%", textAlign: 'center'}}>Home </h2>
+    </Container>
     	<Container>
     	<Button onClick={this.showStats} style={{width: "40%"}}>Show Stats</Button>
     	</Container>
@@ -78,7 +81,7 @@ render() {
         </Container>
 
         
-    </Fragment>
+    </div>
 	}
 	{this.state.show_stats &&
 		<Stats showHome={this.showHome}/>
@@ -91,6 +94,7 @@ render() {
 		</Fragment>
 	}
 	{/*<button onClick={this.showHome}>show_home()</button>*/}
+	</Container>
     </div>
   );}
 }
