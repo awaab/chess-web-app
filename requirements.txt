@@ -2,3 +2,8 @@ psycopg2==2.7.7
 django
 gunicorn
 django-heroku
+djangorestframework
+django-rest-auth
+channels
+django-cors-headers
+django-online-users
