@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '34wnhoj6bncv8yhug+3g7&$-z@@-of!$+j)%dil68oevyf0a7b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
 
 ALLOWED_HOSTS = ['exchesswebapp.herokuapp.com', 'localhost']
 
@@ -174,3 +174,5 @@ REST_FRAMEWORK = {
 #EDITTED allowing cross origin for requests from react 
 #CORS_ORIGIN_ALLOW_ALL = True
 #ALLOWED_HOSTS = ['*']
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
