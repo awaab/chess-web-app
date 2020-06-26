@@ -7,3 +7,4 @@ django-rest-auth
 channels
 django-cors-headers
 django-online-users
+whitenoise
