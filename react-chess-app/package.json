@@ -2,7 +2,6 @@
   "name": "chess-app",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://exchesswebapp.herokuapp.com/",
   "dependencies": {
     "axios": "^0.19.0",
     "bootstrap": "^4.4.1",
