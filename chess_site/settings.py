@@ -135,7 +135,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'react-chess-app', "build"),  # update the STATICFILES_DIRS
+    os.path.join(BASE_DIR, 'react-chess-app', "build", "static"),  # update the STATICFILES_DIRS
 )
 
 #EDITTED
