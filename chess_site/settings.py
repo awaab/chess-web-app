@@ -174,5 +174,5 @@ REST_FRAMEWORK = {
 #EDITTED allowing cross origin for requests from react 
 #CORS_ORIGIN_ALLOW_ALL = True
 #ALLOWED_HOSTS = ['*']
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+#SESSION_COOKIE_SECURE = True
+#CSRF_COOKIE_SECURE = True
