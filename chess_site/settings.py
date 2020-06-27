@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '34wnhoj6bncv8yhug+3g7&$-z@@-of!$+j)%dil68oevyf0a7b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
+DEBUG = True
 
 ALLOWED_HOSTS = ['exchesswebapp.herokuapp.com', 'localhost']
 
