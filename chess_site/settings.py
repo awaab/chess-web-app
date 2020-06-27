@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+DEBUG = True
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -147,10 +148,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'react-chess-app', "build", 'static')
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, 'react-chess-app', "build", 'static'),  # update the STATICFILES_DIRS
-# )
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'react-chess-app', "build", 'static'), # update the STATICFILES_DIRS
+)
 
 #EDITTED
 #LOGIN_REDIRECT_URL = '/'
@@ -192,4 +193,4 @@ SESSION_COOKIE_SECURE = True
 # import django_heroku
 # django_heroku.settings(locals())
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
-# DEBUG = True
+# DEBUG = False
