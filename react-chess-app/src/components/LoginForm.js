@@ -10,8 +10,23 @@ const login_url = 'login/'
 const signup_url = 'signup/'
 const user_url = 'user/'
 const session_url = 'session/'
+const csrf_url = 'csrf/'
 axios.defaults.xsrfCookieName = 'csrftoken'
 axios.defaults.xsrfHeaderName = "X-CSRFTOKEN"
+
+let _csrfToken = null;
+
+async function getCsrfToken() {
+  if (_csrfToken === null) 
+  axios.get(csrf_url)
+  .then(response => {
+  console.log(response);
+  _csrfToken = response.data.csrfToken;
+});
+axios.defaults.headers.common['X-CSRFTOKEN'] = _csrfToken;
+  return _csrfToken;
+}
+
 
 class LoginForm extends Component{
 constructor(props){
@@ -25,7 +40,7 @@ constructor(props){
 	}
 
 	submit = (event) => {
-
+		getCsrfToken();
 		event.preventDefault();
 		const data = {username: event.target.username.value,
 		password: event.target.password.value}
@@ -52,7 +67,7 @@ constructor(props){
 
 
 	submit_signup = (event) => {
-
+		getCsrfToken();
 		event.preventDefault();
 		const data = {username: event.target.username.value,
 		password1: event.target.password1.value, password2: event.target.password2.value}

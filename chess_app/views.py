@@ -17,12 +17,15 @@ from datetime import datetime
 from django.db.models import Q
 from django.template import Context, loader
 from django.shortcuts import render
+from django.middleware.csrf import get_token
 
 '''
 class UserListView(generics.ListAPIView):
     queryset = models.CustomUser.objects.all()
     serializer_class = serializers.UserSerializer
 '''
+def csrf(request):
+    return JsonResponse({'csrfToken': get_token(request)})
 
 
 def index(request):
@@ -30,7 +33,7 @@ def index(request):
 
 class LoggedInView(APIView):
     permission_classes = (IsAuthenticated,)
-    def get(self, request):
+    def post(self, request):
         username = request.user.username
         content = {'user': username}
         return Response(content)

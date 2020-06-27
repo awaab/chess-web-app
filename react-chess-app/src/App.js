@@ -12,10 +12,23 @@ import Websocket from 'react-websocket';
 import './index.css'
 
 
-
+const csrf_url = 'csrf/'
 const logged_in_check_url = 'logged-in/'
 axios.defaults.xsrfCookieName = 'csrftoken'
 axios.defaults.xsrfHeaderName = "X-CSRFTOKEN"
+
+let _csrfToken = null;
+
+async function getCsrfToken() {
+  if (_csrfToken === null) 
+  axios.get(csrf_url)
+  .then(response => {
+  console.log(response);
+  _csrfToken = response.data.csrfToken;
+});
+axios.defaults.headers.common['X-CSRFTOKEN'] = _csrfToken;
+  return _csrfToken;
+}
 
 class App extends Component{
 state = {
@@ -32,8 +45,9 @@ constructor(props){
 }
 
 componentDidMount(){
+  getCsrfToken()
   console.log("componentDidMount token=",this.state.token);
-    axios.get(logged_in_check_url)
+    axios.post(logged_in_check_url)
       .then(response => {
       console.log(response);
       this.setState({logged_in: true});

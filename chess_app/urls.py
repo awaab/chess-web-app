@@ -12,5 +12,6 @@ path('signup/', views.sign_up_view, name='signup'),
 path('endgame/', views.endgame_view, name='endgame'),
 path('games_played/', views.games_played_view, name='games_played'),
 path('', views.index, name='index'),
+path('csrf/', views.csrf, name='csrf'),
 ]
 
