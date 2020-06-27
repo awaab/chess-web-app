@@ -178,3 +178,4 @@ REST_FRAMEWORK = {
 #CSRF_COOKIE_SECURE = True
 import django_heroku
 django_heroku.settings(locals())
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
