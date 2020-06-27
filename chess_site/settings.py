@@ -176,3 +176,5 @@ REST_FRAMEWORK = {
 #ALLOWED_HOSTS = ['*']
 #SESSION_COOKIE_SECURE = True
 #CSRF_COOKIE_SECURE = True
+import django_heroku
+django_heroku.settings(locals())
