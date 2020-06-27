@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
-app_name = 'core'
+from django.conf import settings
+app_name = 'chess_app'
 urlpatterns = [
 #path('signup/', views.signup, name='signup'),
 #path('', views.UserListView.as_view()),

@@ -49,21 +49,31 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # Editted keeping track of users activity
-    'online_users.middleware.OnlineNowMiddleware',
-    #Editted adding cross origin request sharing
-    #'corsheaders.middleware.CorsMiddleware',
-    #'django.middleware.common.CommonMiddleware',
-    #Added for development mode to allow site shared requests:
-    #'chess_site.middleware.dev_cors_middleware',
 ]
+
+# MIDDLEWARE = [
+#     'django.middleware.security.SecurityMiddleware',
+#     'whitenoise.middleware.WhiteNoiseMiddleware',
+#     'django.contrib.sessions.middleware.SessionMiddleware',
+#     'django.middleware.common.CommonMiddleware',
+#     'django.middleware.csrf.CsrfViewMiddleware',
+#     'django.contrib.auth.middleware.AuthenticationMiddleware',
+#     'django.contrib.messages.middleware.MessageMiddleware',
+#     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+#     # Editted keeping track of users activity
+#     'online_users.middleware.OnlineNowMiddleware',
+#     #Editted adding cross origin request sharing
+#     #'corsheaders.middleware.CorsMiddleware',
+#     #'django.middleware.common.CommonMiddleware',
+#     #Added for development mode to allow site shared requests:
+#     #'chess_site.middleware.dev_cors_middleware',
+# ]
 
 ROOT_URLCONF = 'chess_site.urls'
 
@@ -135,9 +145,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'react-chess-app', "build", "static"),  # update the STATICFILES_DIRS
-)
+
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'react-chess-app', "build", 'static')
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, 'react-chess-app', "build", 'static'),  # update the STATICFILES_DIRS
+# )
 
 #EDITTED
 #LOGIN_REDIRECT_URL = '/'
@@ -174,8 +187,9 @@ REST_FRAMEWORK = {
 #EDITTED allowing cross origin for requests from react 
 #CORS_ORIGIN_ALLOW_ALL = True
 #ALLOWED_HOSTS = ['*']
-#SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
 #CSRF_COOKIE_SECURE = True
-import django_heroku
-django_heroku.settings(locals())
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# import django_heroku
+# django_heroku.settings(locals())
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+# DEBUG = True
