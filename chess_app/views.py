@@ -90,10 +90,10 @@ def endgame_view(request):
     user = request.user
     if white_player == 'user':
         white_player = user
-        black_player = User.objects.get_or_create(username=black_player)
+        black_player = User.objects.get_or_create(username=black_player)[0]
     if black_player == 'user':
         black_player = user
-        white_player = User.objects.get_or_create(username=white_player)
+        white_player = User.objects.get_or_create(username=white_player)[0]
     game_instance = models.Game.objects.create(white_player=white_player,black_player=black_player,duration=duration,winner=winner)
     game_instance.save()
     return JsonResponse({'message': 'endgame_view'}, status=200)
