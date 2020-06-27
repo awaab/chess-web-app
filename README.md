@@ -1,6 +1,8 @@
 # chess-web-app
 A web application for playing chess against AI and other online players.
 
+Currently deployed at: http://exchesswebapp.herokuapp.com/
+
 Backend: Pyhon-Django
 
 Frontend: React-js
