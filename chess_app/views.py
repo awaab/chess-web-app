@@ -31,6 +31,9 @@ def csrf(request):
 def index(request):
     return render(request, "index.html")
 
+def csrf_failure(request, reason=""):
+    return JsonResponse({'csrfToken': get_token(request), 'reason': reason})
+
 class LoggedInView(APIView):
     permission_classes = (IsAuthenticated,)
     def post(self, request):
